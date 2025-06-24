@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://apipw.leoproti.com.br',
+  baseURL: 'https://apipw.leoproti.com.br/produtos',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
