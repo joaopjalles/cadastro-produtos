@@ -19,14 +19,24 @@ export default function ProdutoForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+
+  const produtoCorrigido = {
+    ...produto,
+    preco: parseFloat(produto.preco) // converte para número
+  };
+
+  try {
     if (id) {
-      await updateProduto(id, produto);
+      await updateProduto(id, produtoCorrigido);
     } else {
-      await createProduto(produto);
+      await createProduto(produtoCorrigido);
     }
     navigate('/');
-  };
+  } catch (error) {
+    console.error("Erro ao salvar produto:", error);
+  }
+};
 
   return (
     <Container>
